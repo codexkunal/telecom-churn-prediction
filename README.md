@@ -1,6 +1,6 @@
 <img width="1918" height="1018" alt="image" src="https://github.com/user-attachments/assets/ab0918d1-6210-4025-8ea2-cda9ff00f853" />
 
-
+**figure show the streamlit dashboard for the Telecom customer churn XGBoost F-1 score and Accuracy** 
 
 
 # 📡 Telco Customer Churn Prediction - MLOps Assessment
