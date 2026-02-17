@@ -1,3 +1,10 @@
+
+
+
+https://github.com/user-attachments/assets/0d0a21b8-41b7-4c75-8588-e95d3f0d4dcf
+
+**video showcase the different model's accuracy and F-1 score
+
 <img width="1918" height="1018" alt="image" src="https://github.com/user-attachments/assets/ab0918d1-6210-4025-8ea2-cda9ff00f853" />
 
 **figure show the streamlit dashboard for the Telecom customer churn XGBoost F-1 score and Accuracy** 
