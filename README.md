@@ -21,3 +21,14 @@ Use the Sidebar to select an algorithm (e.g., "XGBoost (Champion)").Adjust hyper
 Static TrainingThe current deployment trains on the full dataset for demonstration purposes.
 Production Reality: In a real-world scenario, the model would be trained on historical data and validated on a strictly separated "future" time slice to prevent data leakage.Feature EngineeringI introduced a feature named TotalServices (a sum of active add-ons) as a proxy for customer "stickiness."
 Validation: While this assumption holds true for this specific dataset, it would require validation against domain experts before being applied to a different telecom provider's data.
+
+
+**Reflection **
+1)Did it help you move faster?
+-> Absoutely yes i used gemini and it worked well for me.
+
+2) Did it generate incorrect or surprising suggestions?
+-> I was giving the information in chunks so LLM understood clearly and answered all my question well.
+
+3) Where was it most or least useful?
+-> I used in almost all the coding part , but i understood the domain of the problem and data set by myself.
