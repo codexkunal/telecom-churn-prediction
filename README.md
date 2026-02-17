@@ -1,31 +1,3 @@
-Telco Customer Churn Prediction - MLOps Assessment
-1. Implementation Overview & Design Choices
-For this assessment, I chose to implement a Telco Customer Churn Prediction pipeline. I selected this project because churn prediction is a high-impact business problem where false negatives (missing a churning customer) are significantly more costly than false positives. I compared three algorithms: Random Forest, XGBoost, and CatBoost.
-
-Why XGBoost?
-I selected XGBoost as the production champion because it offered the best strategic trade-off. While Random Forest achieved higher raw accuracy (~80%), it failed to identify nearly 50% of churners (low Recall). By tuning XGBoost with a scale_pos_weight of 2.0, I sacrificed a small amount of overall accuracy (dropping to ~78%) to boost the Recall to 81% and F1-Score to 0.64. This trade-off is intentional: in a churn context, catching 81% of at-risk customers is far more valuable than maximizing accuracy on happy customers who were never going to leave.
-
-2. How to Run the Code
-This project is deployed as an interactive Streamlit web application that allows for real-time model training and benchmarking.
-
-Steps to Run Locally:
-
-Set up the Environment:
-Ensure you have Python installed, then install the required dependencies:
-
-Bash
-pip install streamlit pandas numpy matplotlib seaborn scikit-learn xgboost catboost
-Launch the App:
-Navigate to the project directory in your terminal and run:
-
-Bash
-streamlit run app.py
-Use the Interface:
-A browser window will open automatically. You can use the sidebar to select an algorithm (e.g., "XGBoost (Champion)"), adjust hyperparameters like scale_pos_weight, and click "Train Model" to see the F1-Score and Confusion Matrix in real-time.
-
-3. Assumptions & Limitations
-Data Consistency: The pipeline assumes the input data schema (column names and types) remains consistent with the IBM Telco Dataset. Any changes to column names like tenure or MonthlyCharges would require updates to the preprocessing pipeline.
-
-Static Training: The current deployment trains on the full dataset for demonstration purposes. In a real-world production scenario, the model would be trained on historical data and validated on a separate "future" slice to prevent data leakage.
-
-Feature Engineering: I assumed that TotalServices (a sum of active add-ons) is a proxy for customer "stickiness." This holds true for this dataset but would need validation against domain experts for a different telecom provider.
+📡 Telco Customer Churn Prediction - MLOps Assessment1. Implementation Overview & Design ChoicesFor this assessment, I implemented an end-to-end Telco Customer Churn Prediction pipeline. I selected this project because churn prediction is a high-impact business problem where the cost of errors is asymmetric: false negatives (failing to identify a churning customer) are significantly more costly to a business than false positives (incorrectly flagging a happy customer).To address this, I benchmarked three distinct algorithms:Random ForestXGBoost (Selected Champion)CatBoostWhy XGBoost?I selected XGBoost as the production champion because it offered the best strategic trade-off between precision and recall.ModelAccuracyRecall (Churners)F1-ScoreVerdictRandom Forest~80%< 50%LowHigh accuracy but failed to catch churners.XGBoost (Tuned)~78%81%0.64Selected. Sacrificed 2% accuracy to gain massive coverage on at-risk customers.Strategic Decision: By tuning XGBoost with a scale_pos_weight of 2.0, I intentionally prioritized Recall. In a churn context, catching 81% of at-risk customers is far more valuable than maximizing accuracy on happy customers who were never going to leave.2. How to Run the CodeThis project is deployed as an interactive Streamlit web application that allows for real-time model training, hyperparameter tuning, and benchmarking.PrerequisitesEnsure you have Python installed. You can check this by running python --version in your terminal.Step 1: Set up the EnvironmentInstall the required dependencies using pip:Bashpip install streamlit pandas numpy matplotlib seaborn scikit-learn xgboost catboost
+Step 2: Launch the AppNavigate to the project directory in your terminal and run the Streamlit application:Bashstreamlit run app.py
+Step 3: Use the InterfaceA browser window will open automatically (usually at http://localhost:8501).Use the Sidebar to select an algorithm (e.g., "XGBoost (Champion)").Adjust hyperparameters such as scale_pos_weight to see the impact on model performance.Click "Train Model" to view the F1-Score and Confusion Matrix in real-time.3. Assumptions & LimitationsData ConsistencyThe pipeline currently assumes the input data schema (column names and data types) remains consistent with the IBM Telco Dataset.Constraint: Any upstream changes to column names (e.g., tenure, MonthlyCharges) would require updates to the preprocessing pipeline.Static TrainingThe current deployment trains on the full dataset for demonstration purposes.Production Reality: In a real-world scenario, the model would be trained on historical data and validated on a strictly separated "future" time slice to prevent data leakage.Feature EngineeringI introduced a feature named TotalServices (a sum of active add-ons) as a proxy for customer "stickiness."Validation: While this assumption holds true for this specific dataset, it would require validation against domain experts before being applied to a different telecom provider's data.
