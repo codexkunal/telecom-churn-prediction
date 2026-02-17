@@ -32,3 +32,40 @@ Validation: While this assumption holds true for this specific dataset, it would
 
 3) Where was it most or least useful?
 -> I used in almost all the coding part , but i understood the domain of the problem and data set by myself.
+
+
+
+
+# 📡 Telco Customer Churn Prediction - MLOps Assessment
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B)
+![XGBoost](https://img.shields.io/badge/Model-XGBoost-orange)
+![Status](https://img.shields.io/badge/Status-Complete-success)
+
+## 1. Implementation Overview & Design Choices
+
+For this assessment, I implemented an end-to-end **Telco Customer Churn Prediction pipeline**. I selected this project because churn prediction is a high-impact business problem where the cost of errors is asymmetric: **false negatives** (failing to identify a churning customer) are significantly more costly to a business than **false positives** (incorrectly flagging a happy customer).
+
+To address this, I benchmarked three distinct algorithms:
+* **Random Forest**
+* **XGBoost** (Selected Champion)
+* **CatBoost**
+
+### Why XGBoost?
+I selected **XGBoost** as the production champion because it offered the best strategic trade-off between precision and recall. In a churn context, maximizing recall (catching at-risk customers) is critical to the business model, and XGBoost provided the most robust performance after hyperparameter tuning.
+
+---
+
+## 2. How to Run the Code
+
+This project is deployed as an interactive **Streamlit** web application that allows for real-time model training, hyperparameter tuning, and benchmarking.
+
+### Prerequisites
+Ensure you have Python installed. You can check this by running `python --version` in your terminal.
+
+### Step 1: Set up the Environment
+Install the required dependencies using `pip`:
+
+```bash
+pip install streamlit pandas numpy matplotlib seaborn scikit-learn xgboost catboost
